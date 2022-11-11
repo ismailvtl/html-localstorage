@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome, <span class="username">Guest</span></h1>
+
+    <script>
+        let username = localStorage.getItem("user-name");
+        let usernameEl = document.querySelector('.username');
+        if(username) {
+            usernameEl.textContent = "";
+            usernameEl.textContent = localStorage.getItem("user-name");
+        } else {
+            let p = prompt("Enter your name");
+            localStorage.setItem("user-name", p);
+            setTimeout(function(){
+                usernameEl.textContent = localStorage.getItem("user-name");
+            },100)
+            
+        }
+    </script>
+</body>
+</html>
